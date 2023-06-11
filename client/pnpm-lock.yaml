@@ -34,6 +34,9 @@ dependencies:
   recharts:
     specifier: ^2.6.2
     version: 2.6.2(prop-types@15.8.1)(react-dom@18.2.0)(react@18.2.0)
+  regression:
+    specifier: ^2.0.1
+    version: 2.0.1
 
 devDependencies:
   '@types/node':
@@ -4471,6 +4474,10 @@ packages:
     dependencies:
       jsesc: 0.5.0
     dev: true
+
+  /regression@2.0.1:
+    resolution: {integrity: sha512-A4XYsc37dsBaNOgEjkJKzfJlE394IMmUPlI/p3TTI9u3T+2a+eox5Pr/CPUqF0eszeWZJPAc6QkroAhuUpWDJQ==}
+    dev: false
 
   /reselect@4.1.8:
     resolution: {integrity: sha512-ab9EmR80F/zQTMNeneUr4cv+jSwPJgIlvEmVwLerwrWVbpLlBuls9XHzIeTFy4cegU2NHBp3va0LKOzU5qFEYQ==}
