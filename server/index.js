@@ -1,13 +1,21 @@
-import express from "express";
 import bodyParser from "body-parser";
-import mongoose from "mongoose";
 import cors from "cors";
 import dotenv from "dotenv";
+import express from "express";
 import helmet from "helmet";
+import mongoose from "mongoose";
 import morgan from "morgan";
-import router from "./routes/kpi.js";
+import {
+  kpis,
+  products,
+  transactions,
+} from "./data/data.js";
 import KPI from "./models/KPI.js";
-import { kpis } from "./data/data.js";
+import Product from "./models/Product.js";
+import Transaction from "./models/Transaction.js";
+import router from "./routes/kpi.js";
+import productRoutes from "./routes/product.js";
+import transactionRoutes from "./routes/transaction.js";
 
 //CONFIGURATIONS
 
@@ -30,6 +38,8 @@ console.log("Starting");
 //ROUTES
 
 app.use("/kpi", router);
+app.use("/product", productRoutes);
+app.use("/transaction", transactionRoutes);
 
 //MONGOOSE SETUP
 const PORT = process.env.PORT || 9000;
@@ -44,8 +54,10 @@ mongoose
     );
     //DONT DO THIS WITH A PRODUCTION VERSION OF THIS APP
     //ONLY NECESSARY FOR ACCESSING THE DATA
-    await mongoose.connection.db.dropDatabase();
-    KPI.insertMany(kpis);
+    // await mongoose.connection.db.dropDatabase();
+    // KPI.insertMany(kpis);
+    // Product.insertMany(products);
+    // Transaction.insertMany(transactions);
   })
   .catch((error) => {
     console.log(`${error} did not connect `);

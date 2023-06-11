@@ -3,7 +3,7 @@ import DashboardBox from "@/components/dasboardBox"
 import { useGetKpisQuery } from "@/state/api"
 import { useTheme } from "@mui/material"
 import { useMemo } from "react"
-import { ResponsiveContainer, AreaChart, CartesianGrid, XAxis, YAxis, Tooltip, Area, Line, LineChart, Legend, Bar, BarChart } from "recharts"
+import { Area, AreaChart, Bar, BarChart, CartesianGrid, Legend, Line, LineChart, ResponsiveContainer, Tooltip, XAxis, YAxis } from "recharts"
 const Row1 = () => {
     const { palette } = useTheme()
     const { data } = useGetKpisQuery()
@@ -15,7 +15,7 @@ const Row1 = () => {
                 return {
                     name: month.substring(0, 3),
                     revenue: revenue,
-                    profit: revenue - expenses,
+                    profit: expenses,
                 }
             })
         )
@@ -72,7 +72,7 @@ const Row1 = () => {
                                 <stop
                                     offset='95%'
                                     stopColor={palette.primary[300]}
-                                    stopOpacity={0.5} />
+                                    stopOpacity={0} />
                             </linearGradient>
                             <linearGradient id='colorExpenses' x1='0' y1='0' x2='0' y2='1'>
                                 <stop
@@ -82,10 +82,9 @@ const Row1 = () => {
                                 <stop
                                     offset='95%'
                                     stopColor={palette.primary[300]}
-                                    stopOpacity={0.5} />
+                                    stopOpacity={0} />
                             </linearGradient>
                         </defs>
-                        <CartesianGrid strokeDasharray='3 3' />
                         <XAxis
                             dataKey='name'
                             tickLine={false}

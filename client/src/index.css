@@ -25,3 +25,19 @@ body,
 ::-webkit-scrollbar-track:hover {
   background: #2a2b2f;
 }
+
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: #242427;
+}
+
+::-webkit-scroll-bar-thumb {
+  background: #48494e;
+}
+
+::-webkit-scrollbar-track:hover {
+  background: #2a3b3f;
+}
